@@ -3,16 +3,16 @@ dob.addEventListener("change", () => validateDob(dob));
 function validateDob(dob){
     console.log(dob.value)
 let Date1=dob.value.split("-");
-let yr=Date1[0];
+let year=Date1[0];
 let month=Date1[1];
 let date=Date1[2];
-let birthdate = new Date(yr, month, date);
+let birthdate = new Date(year, month, date);
 let today = new Date();
 let currentYear= today.getFullYear();
 let birthYear=birthdate.getFullYear()
 let age = currentYear - birthYear;
 let monthDiff = today.getMonth() - birthdate.getMonth();
-if ((today.getDate()<birthdate.getDate())||monthDiff<0) 
+if ((today.getDate() < birthdate.getDate())||monthDiff<0) 
 {
 age--;
 }
@@ -61,7 +61,7 @@ const displayEntries=()=>{
     const row=`<tr>${name} ${email} ${password} ${dob} ${accept}</tr>`;
     return row;
     }).join("\n");
-    const table=`<table border="2" cellspacing="8" cellpadding="4">
+    const table=`<table border="2">
     <tr>
     <th>Name</th>
     <th>Email</th>
@@ -86,7 +86,7 @@ const saveUserForm=(event)=>{
         name,
         email,
         password,
-        Dob,
+        dob,
         acceptedTermsAndCondition
      };
      userEntries.push(entry);
